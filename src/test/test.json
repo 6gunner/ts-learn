@@ -1,0 +1,23 @@
+{
+  "name": "Bluth Family",
+  "parents": [
+    {
+      "name": "George",
+      "age": 712
+    },
+    {
+      "name": "Lucille",
+      "age": 34
+    }
+  ],
+  "children": [
+    {
+      "name": "George",
+      "age": 712
+    },
+    {
+      "name": "Lucille",
+      "age": 34
+    }
+  ]
+}
