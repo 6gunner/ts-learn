@@ -8,7 +8,7 @@ const ListPage = () => {
   const checkList = useAppSelector(state => state.root.checkList);
   useEffect(() => {
     dispatch(fetchList())
-  })
+  }, [dispatch])
   return (
     <div>
       {checkList.map((item) => (
