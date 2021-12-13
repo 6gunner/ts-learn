@@ -1,7 +1,10 @@
 {
   "folders": [
     {
-      "path": "checklist-demo"
+      "path": "checklist-server"
+    },
+    {
+      "path": "ts-checklist-web"
     }
   ],
   "settings": {}

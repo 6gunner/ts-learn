@@ -5,7 +5,6 @@ enum CodeType {
   BindGA,
   UnbindEmail = 17,
   UnbindMobile
-
 }
 
 export default { CodeType }

@@ -21,6 +21,7 @@ class CounterButton extends React.Component<Props, State> {
     console.log("UNSAFE_componentWillReceiveProps is called");
   }
 
+  // 第一次挂载不会被调用
   UNSAFE_componentWillMount() {
     console.log("UNSAFE_componentWillMount is called");
   }
@@ -29,7 +30,7 @@ class CounterButton extends React.Component<Props, State> {
     console.log("componentDidMount is called");
   }
 
-  UNSAFE_componentWillUpdate(nextProps: any, nextState: any) {
+  UNSAFE_componentWillUpdate() {
     console.log("UNSAFE_componentWillUpdate is called");
   }
 

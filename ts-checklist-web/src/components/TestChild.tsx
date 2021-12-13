@@ -27,11 +27,14 @@ class TestChild extends React.Component<Props, State> {
     console.log("componentDidMount is called");
   }
 
-  UNSAFE_componentWillUpdate(nextProps: any, nextState: any) {
+  /**
+   * 
+   */
+  UNSAFE_componentWillUpdate() {
     console.log("UNSAFE_componentWillUpdate is called");
   }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate() {
     console.log("componentDidUpdate is called");
   }
 
