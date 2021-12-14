@@ -1,16 +1,39 @@
 // 修改checklist
-import React, { ChangeEvent, useState } from 'react';
-import { useAppDispatch } from '../hooks';
-import { add } from '../features/root'
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useAppSelector, useAppDispatch } from '../hooks';
+import { addItem, fetchItemById, updateItem, } from '../features/root'
+import { useNavigate, useParams } from 'react-router-dom';
 
 function EditPage() {
-  // 组件内部要用到的state
-  const [state, setState] = useState({
-    text: "",
-    isChecked: false,
-  })
   // 拿到dispatch对象
   const dispatch = useAppDispatch();
+  const { currCheckItem } = useAppSelector(state => state.root);
+  // 拿到navigate对象
+  const navigate = useNavigate();
+
+  // 组件内部要用到的state
+  const [state, setState] = useState({
+    id: currCheckItem.id ? currCheckItem.id : 0,
+    text: currCheckItem.text,
+    isChecked: currCheckItem.isChecked
+  })
+
+  const { id } = useParams();
+  useEffect(() => {
+    // 如果id存在，说明是修改表单，先去查询
+    if (id) {
+      dispatch(fetchItemById(id))
+    }
+  }, [id, dispatch])
+  // 查询结果设置到state里
+  useEffect(() => {
+    setState({
+      id: currCheckItem.id || 0,
+      text: currCheckItem.text,
+      isChecked: currCheckItem.isChecked,
+    })
+  }, [currCheckItem])
+
 
   const onTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setState({
@@ -26,12 +49,22 @@ function EditPage() {
   }
 
   const cancel = () => {
-
+    navigate(-1);
   }
 
   const confirm = () => {
-    console.log(state);
-    dispatch(add(state))
+    debugger
+    if (state.id) {
+      dispatch(updateItem(state)).then(() => {
+        alert('更新成功')
+        navigate(-1)
+      })
+    } else {
+      dispatch(addItem(state)).then(() => {
+        alert('保存成功')
+        navigate(-1)
+      })
+    }
   }
   return (
     <div>

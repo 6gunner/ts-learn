@@ -18,6 +18,22 @@ router.get("/list", async (req, res, next) => {
   }
 })
 
+router.get("/get", async (req, res, next) => {
+  const workItemRepositry = getManager().getRepository(WorkItem);
+  try {
+    const id = req.query.id;
+    console.log(`id = ${id}`)
+    const entity = await workItemRepositry.findOne(id);
+    if (entity) {
+      res.json(entity);
+    } else {
+      res.json({});
+    }
+  } catch (err) {
+    next(err);
+  }
+})
+
 router.post('/add', async (req, res, next) => {
   // 保存
   const workItemRepositry = getManager().getRepository(WorkItem);
@@ -38,7 +54,6 @@ router.post('/add', async (req, res, next) => {
 router.put("/update/:id", async (req, res, next) => {
   const body = req.body;
   const workItemRepositry = getManager().getRepository(WorkItem);
-
   try {
     const entity = await workItemRepositry.findOne(req.params.id);
     if (entity) {

@@ -20,10 +20,15 @@ const AppRouter = () => (
             <ListPage />
           </React.Suspense>
         }></Route>
-        <Route path="edit" element={
+        <Route path="edit/:id" element={
           <React.Suspense fallback={<>...</>}>
             <EditPage />
           </React.Suspense>
+          }></Route>
+          <Route path="edit" element={
+            <React.Suspense fallback={<>...</>}>
+              <EditPage />
+            </React.Suspense>
         }></Route>
       </Route>
 

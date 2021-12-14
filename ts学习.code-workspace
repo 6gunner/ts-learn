@@ -5,6 +5,9 @@
     },
     {
       "path": "ts-checklist-web"
+    },
+    {
+      "path": "basic-demo"
     }
   ],
   "settings": {}
