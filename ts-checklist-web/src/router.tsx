@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import Layout from '../layout'
-import App from "../routes/App";
-const EditPage = React.lazy(() => import("../routes/Edit"));
-const ListPage = React.lazy(() => import("../routes/List"));
+import Layout from './layout'
+import App from "./routes/App";
+const EditPage = React.lazy(() => import("./routes/Edit"));
+const ListPage = React.lazy(() => import("./routes/List"));
 
 const AppRouter = () => (
   // browserRouter作为根节点，在它的子节点里配置路由
@@ -24,11 +24,11 @@ const AppRouter = () => (
           <React.Suspense fallback={<>...</>}>
             <EditPage />
           </React.Suspense>
-          }></Route>
-          <Route path="edit" element={
-            <React.Suspense fallback={<>...</>}>
-              <EditPage />
-            </React.Suspense>
+        }></Route>
+        <Route path="edit" element={
+          <React.Suspense fallback={<>...</>}>
+            <EditPage />
+          </React.Suspense>
         }></Route>
       </Route>
 

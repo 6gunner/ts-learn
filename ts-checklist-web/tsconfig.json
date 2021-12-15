@@ -7,7 +7,7 @@
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
@@ -28,6 +28,6 @@
     "noFallthroughCasesInSwitch": true,
     "isolatedModules": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../basic-demo/src/test"],
   "compileOnSave": false
 }

@@ -1,14 +1,15 @@
 
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { fetchList, deleteById } from '../features/root'
+import { fetchList, deleteById, selectCheckList } from '../features/root'
 import type { CheckItem } from '../features/root'
 import { useNavigate } from 'react-router-dom';
 
 const ListPage = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch();
-  const checkList = useAppSelector(state => state.root.checkList);
+  const checkList = useAppSelector(selectCheckList);
+  console.log(`checkList = ${JSON.stringify(checkList)}`)
   useEffect(() => {
     dispatch(fetchList())
   }, [dispatch])
@@ -34,15 +35,14 @@ const ListPage = () => {
   return (
     <div>
       <ul>
-        {checkList.map((item) => (
+        {checkList && checkList.length ? checkList.map((item) => (
           <li key={item.id}>
             <span>{item.text}</span>
             <button onClick={() => onEdit(item)}>修改</button>
             <button onClick={() => onDelete(item)}>删除</button>
           </li>
-        ))}
+        )) : ""}
       </ul>
-
     </div>
   )
 }
