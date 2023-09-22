@@ -4,7 +4,7 @@
   "port": 3306,
   "username": "root",
   "password": "Abc123123",
-  "database": "db_checklist",
+  "database": "checklist",
   "autoSchemaSync": true,
   "synchronize": true,
   "logging": true,
