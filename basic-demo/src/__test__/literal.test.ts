@@ -1,3 +1,5 @@
+// 字面量类型
+
 let changingString = "Hello World";
 changingString = "Olá Mundo";
 // let changingString: "string"
