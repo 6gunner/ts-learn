@@ -13,10 +13,10 @@
     "@types/react-dom": "^16.9.0",
     "classnames": "^2.2.6",
     "mini-store": "^3.0.6",
-    "node-sass": "^4.14.1",
+    "node-sass": "^9.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
+    "react-scripts": "5.0.1",
     "typescript": "~3.7.2"
   },
   "scripts": {
