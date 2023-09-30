@@ -1,0 +1,122 @@
+@import "../../styles/variables";
+
+$menu-prefix-cls: "#{$ez-prefix}-menu";
+$submenu-prefix-cls: "#{$ez-prefix}-submenu";
+
+.#{$menu-prefix-cls} {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+
+  &-horizontal {
+    flex-direction: row;
+    line-height: $menu-horizontal-line-height;
+    border: 0;
+    border-bottom: $menu-border-width $border-style-base $border-color-split;
+    box-shadow: none;
+  }
+
+  &-item {
+    padding: 0;
+    cursor: pointer;
+  }
+  &-horizontal &-item {
+    margin: $menu-item-margin;
+    &:hover {
+      color: $menu-active-color;
+      border-bottom: $menu-border-width $border-style-base $menu-border-color;
+    }
+  }
+  &-horizontal &-item-selected {
+    color: $menu-active-color;
+    border-bottom: $menu-border-width $border-style-base $menu-border-color;
+  }
+  &-horizontal .#{$submenu-prefix-cls} {
+    margin: $menu-item-margin;
+    .#{$submenu-prefix-cls}-title:hover {
+      border-bottom: $menu-border-width $border-style-base $menu-border-color;
+    }
+  }
+  &-horizontal &-sub {
+    position: absolute;
+    z-index: 1050;
+    border-radius: 2px;
+    outline: none;
+    box-shadow: $menu-box-shadow;
+    background: #fff;
+    top: 50px;
+    left: 0;
+    padding: 8px 16px;
+    display: none;
+    list-style: none;
+    min-width: $menu-item-min-width;
+
+    &.#{$menu-prefix-cls}-sub-open {
+      display: block;
+    }
+  }
+
+  &-sub &-item {
+    &:hover {
+      color: $menu-active-color;
+      border-bottom: none;
+    }
+  }
+  &-vertical {
+    width: 100%;
+    flex-direction: column;
+    line-height: $menu-vertical-line-height;
+    border: 0;
+    box-shadow: none;
+    .#{$menu-prefix-cls}-item {
+      margin: 0;
+      padding: 0;
+    }
+    .#{$menu-prefix-cls}-item:hover {
+      color: $menu-active-color;
+    }
+    .#{$menu-prefix-cls}-item-selected {
+      color: $menu-active-color;
+    }
+    .#{$menu-prefix-cls}-submenu-arrow {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      vertical-align: baseline;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      position: absolute;
+      right: 16px;
+      line-height: 1.5em;
+      transform: rotate(90deg);
+      transition: rotate 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      &:before {
+        content: "\f105";
+      }
+    }
+  }
+
+  &-vertical &-sub {
+    display: none;
+    list-style: none;
+    padding: 0 24px;
+    &.#{$menu-prefix-cls}-sub-open {
+      display: block;
+    }
+  }
+}
+
+.#{$submenu-prefix-cls} {
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+
+  &-title {
+    display: flex;
+    align-items: center;
+    &:hover {
+      color: $menu-active-color;
+    }
+  }
+}
