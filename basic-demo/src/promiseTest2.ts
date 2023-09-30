@@ -18,4 +18,4 @@ testFunc([
   () => console.log(3)
 ])
 
-export {}
+export { }

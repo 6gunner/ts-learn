@@ -22,7 +22,7 @@ const array: fn = [1, 2, 3]
 
 interface LabelledValue {
   label: string,
-  size: number,
+  size?: number,
 }
 let myObj: LabelledValue = {
   label: "size 10 ",
